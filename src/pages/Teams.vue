@@ -1,6 +1,7 @@
 <template >
   <div class="teams-container">
     <div v-for="team in teams" :key="team.name" class="card-container">
+      <div class="position">{{team.position}}-</div>
       <TeamCard data-background-color="orange" v-bind:team="team"></TeamCard>
     </div>
   </div>
@@ -48,9 +49,14 @@ export default {
   /* display: inline-block; */
 }
 .card-container {
-  display: block;
+  display: flex;
   width: 350px;
   height: 150px;
   margin: 50px auto 30px auto;
+}
+.position {
+  font-size: 27px;
+  font-weight: bold;
+  margin: 20px 15px;
 }
 </style>

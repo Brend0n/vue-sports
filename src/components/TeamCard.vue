@@ -1,13 +1,13 @@
 <template >
-  <md-card class="card">
+  <md-card class="card" v-on:click="launchURL">
     <div class="logo">
-      <img v-bind:src="team.crestUrl">
-      <span class="founded md-image">{{team.founded}}</span>
+      <img v-bind:src="team.team.crestUrl">
+      <span class="position">{{team.points}} points</span>
     </div>
 
-    <div class="team-name">{{team.name}}</div>
+    <div class="team-name">{{team.team.name}}</div>
     <md-card-content>
-      <slot name="content">terer</slot>
+      <slot name="content"></slot>
     </md-card-content>
 
     <md-card-actions md-alignment="left">
@@ -25,6 +25,11 @@ export default {
     team: {
       type: Object
     }
+  },
+  methods: {
+    launchURL: function(team) {
+      window.open(team.crestUrl, "windowName");
+    }
   }
 };
 </script>
@@ -39,11 +44,11 @@ img {
   max-height: 80px;
   margin-top: 2px;
 }
-.founded {
-  font-size: 13px;
-  position: absolute;
-  bottom: -2px;
-  left: 28px;
+.position {
+  font-size: 18px;
+  font-weight: bolder;
+  display: block;
+  margin-top: 30px;
 }
 .team-name {
   margin-left: 100px;
