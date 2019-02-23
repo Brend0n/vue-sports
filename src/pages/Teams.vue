@@ -26,15 +26,15 @@ export default {
   methods: {
     getTeam: function() {
       axios
-        .get("http://api.football-data.org/v2/competitions/PL/teams", {
+        .get("http://api.football-data.org/v2/competitions/PL/standings", {
           headers: { "X-Auth-Token": "eec8bc916c01416b963c97d6d9e27bd8" }
         })
         .then(response => {
           // eslint-disable-next-line
           console.log("mounted");
           // eslint-disable-next-line
-          console.log("teams", response.data.teams);
-          this.teams = response.data.teams;
+          console.log("teams", response.data.standings[0].table);
+          this.teams = response.data.standings[0].table;
         });
     }
   }
@@ -48,9 +48,9 @@ export default {
   /* display: inline-block; */
 }
 .card-container {
-  display: inline-block;
+  display: block;
   width: 350px;
   height: 150px;
-  margin: 20px 10px 10px 10px;
+  margin: 50px auto 30px auto;
 }
 </style>
