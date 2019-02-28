@@ -5,10 +5,15 @@
       <span class="position">{{team.points}} points</span>
     </div>
 
-    <div class="team-name">{{team.team.name}}</div>
-    <md-card-content>
-      <slot name="content"></slot>
-    </md-card-content>
+    <div class="info">
+      <div class="team-name">{{team.team.name}}</div>
+      <md-card-content>
+        <slot name="content">
+          Match Played: {{team.playedGames}}
+          Won:{{team.won}} / Draw:{{team.draw}} / Lost:{{team.lost}}
+        </slot>
+      </md-card-content>
+    </div>
 
     <md-card-actions md-alignment="left">
       <slot name="footer"></slot>
@@ -51,9 +56,9 @@ img {
   margin-top: 30px;
 }
 .team-name {
-  margin-left: 100px;
   margin-top: 10px;
   justify-content: center;
+  padding: 0 5px;
   font-size: 18px;
   font-weight: bold;
   color: gray;
@@ -66,5 +71,8 @@ img {
   height: 100px;
   border: 2px solid gray;
   border-radius: 3px;
+}
+.info {
+  margin-left: 100px;
 }
 </style>
